@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+.container{
+  align-items: center;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.card {
+  border-width: 1px;
+  padding: 20px !important;
+  margin-top: 10px;
+}

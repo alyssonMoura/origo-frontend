@@ -1,10 +1,13 @@
 <div class="container">
-  <header class="jumbotron">
+  <div class="card">
     <div class="row">
-      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+      <div class="col-11 align-self-start">
+        <h1>Clientes</h1>
+      </div>
+      <div class="col-1 align-self-end">
+        <button type="button" class="btn btn-primary" (click)="navigateClienteCreate()">Novo</button>
+      </div>
     </div>
-  </header>
+    <app-clientes-list></app-clientes-list>
+  </div>
 </div>

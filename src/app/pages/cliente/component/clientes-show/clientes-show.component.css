@@ -1,0 +1,8 @@
+.row {
+  border-bottom: 1px solid !important;
+  border-color: lightgray !important;
+  padding: 10px;
+}
+.delete > i {
+  color: tomato;
+}

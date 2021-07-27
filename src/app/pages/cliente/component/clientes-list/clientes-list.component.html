@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="title col-sm-3">Nome</div>
+        <div class="title col-sm-3">E-mail</div>
+        <div class="title col-sm-2">Telefone</div>
+        <div class="title col-sm-1">Estado</div>
+        <div class="title col-sm-2">Data Nascimento</div>
+        <div class=" col-sm-1"></div>
+      </div>
+      <div class="row" *ngFor="let cliente of clientes">
+        <div class=" col-sm-3">{{cliente.name}}</div>
+        <div class=" col-sm-3">{{cliente.email}}</div>
+        <div class=" col-sm-2">{{cliente.telefone}}</div>
+        <div class=" col-sm-1">{{cliente.estados.sigla}}</div>
+        <div class=" col-sm-2">{{cliente.data_nascimento | date:'dd/mm/yyyy'}}</div>
+        <div class=" col-sm-1">
+          <a routerLink="/cliente/update/{{ cliente.id }}" class="edit">
+            <i class="bi bi-pencil"></i>
+          </a>
+          <a routerLink="/cliente/show/{{ cliente.id }}" class="delete">
+            <i class="bi bi-folder2-open"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.row {
+  border-bottom: 1px solid !important;
+  border-color: lightgray !important;
+  padding: 10px;
+}
+
+.row .title{
+  font-weight: 600;
+  font-size: medium;
+}
+.edit {
+  margin-right: 15px;
+}
+.edit > i {
+  color: #5932c4;
+}
+.delete > i {
+  color: tomato;
+}

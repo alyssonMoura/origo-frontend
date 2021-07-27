@@ -1,0 +1,118 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" name="name"
+          [(ngModel)]="form.name" required minlength="3"
+          maxlength="50" #name="ngModel"/>
+        <div class="alert-danger" *ngIf="name.errors && f.submitted">
+          <div *ngIf="name.errors.required">Nome é obrigatório</div>
+          <div *ngIf="name.errors.minlength">
+            Nome must be at least 3 characters
+          </div>
+          <div *ngIf="name.errors.maxlength">
+            Nome must be at most 20 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel"
+        />
+        <div class="alert-danger" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors.required">Email é obrigatório</div>
+          <div *ngIf="email.errors.email">
+            Email must be a valid email address
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input
+          type="telefone"
+          class="form-control"
+          name="telefone"
+          [(ngModel)]="form.telefone"
+          required
+          minlength="6"
+          #telefone="ngModel"
+          mask="(99)9?9999-9999"
+        />
+        <div class="alert-danger" *ngIf="telefone.errors && f.submitted">
+          <div *ngIf="telefone.errors.required">Telefone é obrigatório</div>
+          <div *ngIf="telefone.errors.minlength">
+            Telefone must be at least 9 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dataNascimento">Data de Nascimento - {{ form.data_nascimento }}</label>
+        <input
+          type="date"
+          class="form-control"
+          name="data_nascimento"
+          [(ngModel)]="form.data_nascimento"
+          required
+          #data_nascimento="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="data_nascimento.errors && f.submitted"
+        >
+          <div *ngIf="data_nascimento.errors.required">Data de nascimento é obrigatório</div>
+          <div *ngIf="data_nascimento.errors.minlength">
+            Data de nascimento must be at least 8 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="estados">Estado</label>
+        <select class="form-control" aria-label="Selecione um Estado" name="estado" (change)="getMunicipios()"
+          [(ngModel)]="form.estado_id" >
+          <option [ngValue]="null" selected>Selecione um Estado</option>
+          <option *ngFor="let estado of estados" [ngValue]="estado.id" [selected]="estado.id === form.estados.id">
+            {{ estado.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="municipios">Municipio</label>
+        <select class="form-control" aria-label="Selecione um Município" name="municipio" [(ngModel)]="form.municipio_id">
+          <option [ngValue]="null" selected>Selecione um Município</option>
+          <option *ngFor="let municipio of municipios" [ngValue]="municipio.id" [selected]="municipio.id ===form.municipios.id">
+            {{ municipio.name }}
+          </option>
+        </select>
+      </div>
+      <!-- <div class="form-group">
+        <label formArrayName="planos"
+            *ngFor="let plano of planos; let i = index">
+          <input type="checkbox" [formControlName]="i" />
+          {{plano[i].name}}
+        </label>
+      </div> -->
+      <div class="form-group align-self-end">
+        <div class="col-sm-2">
+          <button class="btn btn-primary btn-block">Salvar</button>
+        </div>
+      </div>
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Erro ao salvar <br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Sauvo com sucesso!
+    </div>
+  </div>
+</div>

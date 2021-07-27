@@ -21,7 +21,7 @@
           #name="ngModel"
         />
         <div class="alert-danger" *ngIf="name.errors && f.submitted">
-          <div *ngIf="name.errors.required">name is required</div>
+          <div *ngIf="name.errors.required">name é obrigatório</div>
           <div *ngIf="name.errors.minlength">
             name must be at least 3 characters
           </div>
@@ -42,7 +42,7 @@
           #email="ngModel"
         />
         <div class="alert-danger" *ngIf="email.errors && f.submitted">
-          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.required">Email é obrigatório</div>
           <div *ngIf="email.errors.email">
             Email must be a valid email address
           </div>
@@ -60,7 +60,7 @@
           #password="ngModel"
         />
         <div class="alert-danger" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.required">Password é obrigatório</div>
           <div *ngIf="password.errors.minlength">
             Password must be at least 6 characters
           </div>
@@ -82,7 +82,7 @@
           role="alert"
           *ngIf="password_confirmation.errors && f.submitted"
         >
-          <div *ngIf="password_confirmation.errors.required">password confirmation is required</div>
+          <div *ngIf="password_confirmation.errors.required">password confirmation é obrigatório</div>
           <div *ngIf="password_confirmation.errors.minlength">
             Password must be at least 6 characters
           </div>

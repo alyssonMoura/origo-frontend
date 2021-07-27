@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-3 align-self-start">
+        <h3>Cliente </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 align-self-start">
+        <h4>Nome: </h4>
+      </div>
+      <div class="col-9 align-self-start">
+        <h5>{{cliente.name}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 align-self-start">
+        <h4>Email: </h4>
+      </div>
+      <div class="col-9 align-self-start">
+        <h5>{{cliente.email}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 align-self-start">
+        <h4>Telefone: </h4>
+      </div>
+      <div class="col-9 align-self-start" ui-mask="(99)9?9999-9999">
+        <h5>{{cliente.telefone}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 align-self-start">
+        <h4>Município: </h4>
+      </div>
+      <div class="col-9 align-self-start">
+        <h5>{{cliente.municipios.name}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 align-self-start">
+        <h4>Estado:</h4>
+      </div>
+      <div class="col-9 align-self-start">
+        <h5>{{cliente.estados.name}}</h5>
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-3 align-self-start">
+        <h5>Planos:</h5>
+      </div>
+      <div class="col-3 align-self-end" *ngFor="let plano of cliente.planos">
+        <h6>{{plano.name}}: {{plano.price | currency:'BRL'}}</h6>
+      </div>
+    </div>
+    <div class="row align-self-end">
+      <div class="col">
+        <button type="button" class="btn btn-success" (click)="onReturn()">
+          Volatr
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-danger" (click)="onDelete(cliente.id)">
+          Excluir
+        </button>
+      </div>
+    </div>
+    <div class="alert alert-warning" *ngIf="isFailed">
+      Erro ao tentar excluir!!<br />{{ errorMessage }}
+    </div>
+  </div>
+</div>
