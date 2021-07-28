@@ -53,14 +53,14 @@
         <h6>{{plano.name}}: {{plano.price | currency:'BRL'}}</h6>
       </div>
     </div>
-    <div class="row align-self-end">
-      <div class="col">
-        <button type="button" class="btn btn-success" (click)="onReturn()">
+    <div class="row">
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-success btn-block" (click)="onReturn()">
           Volatr
         </button>
       </div>
-      <div class="col">
-        <button type="button" class="btn btn-danger" (click)="onDelete(cliente.id)">
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-danger btn-block" (click)="onDelete(cliente.id)">
           Excluir
         </button>
       </div>

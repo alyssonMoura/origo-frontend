@@ -1,5 +1,8 @@
 <div class="col-md-12">
   <div class="card card-container">
+    <div class="row">
+      <h3>Edição de Clientes</h3>
+    </div>
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm" novalidate>
       <div class="form-group">
@@ -43,19 +46,20 @@
           name="telefone"
           [(ngModel)]="form.telefone"
           required
-          minlength="6"
+          minlength="9"
+          maxlength="10"
           #telefone="ngModel"
-          mask="(99)9?9999-9999"
+          mask="(00) 0000-0000"
         />
         <div class="alert-danger" *ngIf="telefone.errors && f.submitted">
           <div *ngIf="telefone.errors.required">Telefone é obrigatório</div>
           <div *ngIf="telefone.errors.minlength">
-            Telefone must be at least 9 characters
+            Telefone must be at least 10 characters
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label for="dataNascimento">Data de Nascimento - {{ form.data_nascimento }}</label>
+        <label for="dataNascimento">Data de Nascimento </label>
         <input
           type="date"
           class="form-control"
@@ -94,25 +98,34 @@
           </option>
         </select>
       </div>
-      <!-- <div class="form-group">
-        <label formArrayName="planos"
-            *ngFor="let plano of planos; let i = index">
-          <input type="checkbox" [formControlName]="i" />
-          {{plano[i].name}}
-        </label>
-      </div> -->
-      <div class="form-group align-self-end">
-        <div class="col-sm-2">
-          <button class="btn btn-primary btn-block">Salvar</button>
+      <div class="form-group" >
+        <label for="planos">Planos</label>
+        <div class="row">
+        <div *ngFor="let plano of planos">
+          <div class="col">
+            <input type="checkbox" [checked]="plano.check" value="{{plano.id}}" (change)="onChecked($event)"> {{plano.name}}
+          </div>
         </div>
       </div>
-      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">Salvar</button>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <button type="button" class="btn btn-success btn-block" (click)="onReturn()">
+            Volatr
+          </button>
+        </div>
+      </div>
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
         Erro ao salvar <br />{{ errorMessage }}
       </div>
     </form>
-
     <div class="alert alert-success" *ngIf="isSuccessful">
-      Sauvo com sucesso!
+      Salvo com sucesso!
     </div>
   </div>
 </div>

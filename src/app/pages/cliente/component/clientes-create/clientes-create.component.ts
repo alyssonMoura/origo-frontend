@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../cliente.service';
 
@@ -11,7 +12,8 @@ export class ClientesCreateComponent implements OnInit {
     name: null,
     email: null,
     data_nascimento: null,
-    municipio_id:null
+    municipio_id:null,
+    plano:[]
   };
   estados:any;
   municipios:any;
@@ -19,13 +21,23 @@ export class ClientesCreateComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-  constructor(private clienteService: ClienteService) { }
+  constructor(private router: Router, private clienteService: ClienteService) { }
 
   ngOnInit(): void {
     this.getEstados();
     this.getPlanos();
   }
 
+  onChecked(e:any){
+    if (e.target.checked) {
+      this.form.plano.push(e.target.value);
+      } else {
+        this.form.plano = this.form.plano.filter((item: any) => {
+          return item != e.target.value;
+        });
+      }
+      console.log(this.form.plano);
+  }
   onSubmit(): void {
     const data : any = this.form;
     console.log(data);
@@ -69,12 +81,14 @@ export class ClientesCreateComponent implements OnInit {
     this.clienteService.getPlanos()
     .subscribe(
       data => {
-        this.planos = [data];
+        this.planos = data;
         console.log(data);
       },
       error => {
         console.log(error);
       });
   }
-
+  onReturn():void{
+    this.router.navigate(["/cliente"]);
+  }
 }
