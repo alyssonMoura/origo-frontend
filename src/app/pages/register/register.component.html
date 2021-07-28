@@ -17,16 +17,16 @@
           [(ngModel)]="form.name"
           required
           minlength="3"
-          maxlength="20"
+          maxlength="50"
           #name="ngModel"
         />
         <div class="alert-danger" *ngIf="name.errors && f.submitted">
-          <div *ngIf="name.errors.required">name é obrigatório</div>
+          <div *ngIf="name.errors.required">Nome é obrigatório</div>
           <div *ngIf="name.errors.minlength">
-            name must be at least 3 characters
+            Nome deve ter no minimo 3 caracteres
           </div>
           <div *ngIf="name.errors.maxlength">
-            name must be at most 20 characters
+            Nome deve ter no máximo 50 caracteres.
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
         <div class="alert-danger" *ngIf="email.errors && f.submitted">
           <div *ngIf="email.errors.required">Email é obrigatório</div>
           <div *ngIf="email.errors.email">
-            Email must be a valid email address
+            Email inválido
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
         <div class="alert-danger" *ngIf="password.errors && f.submitted">
           <div *ngIf="password.errors.required">Password é obrigatório</div>
           <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
+            Password deve ter no mínimo 6 characteres
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@
         >
           <div *ngIf="password_confirmation.errors.required">password confirmation é obrigatório</div>
           <div *ngIf="password_confirmation.errors.minlength">
-            Password must be at least 6 characters
+            Password deve ter no mínomo 6 characteres
           </div>
         </div>
       </div>
@@ -93,12 +93,12 @@
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
+        Signup falhou!<br />{{ errorMessage }}
       </div>
     </form>
 
     <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+      Sucesso ao salvar!
     </div>
   </div>
 </div>
