@@ -14,6 +14,7 @@ import { ClientesCreateComponent } from './pages/cliente/component/clientes-crea
 import { ClientesEditComponent } from './pages/cliente/component/clientes-edit/clientes-edit.component';
 import { ClientesShowComponent } from './pages/cliente/component/clientes-show/clientes-show.component';
 import { PlanoComponent } from './pages/plano/plano/plano.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { PlanoComponent } from './pages/plano/plano/plano.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

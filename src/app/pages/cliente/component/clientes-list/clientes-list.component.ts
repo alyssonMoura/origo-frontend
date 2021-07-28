@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ClientesListComponent implements OnInit {
 
-  clientes: any;
   constructor(private clienteService: ClienteService, private router: Router) { }
 
+  clientes: any;
+  p: number = 1;
   ngOnInit(): void {
     this.getAll();
   }
