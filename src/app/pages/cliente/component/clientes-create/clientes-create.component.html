@@ -46,9 +46,10 @@
           name="telefone"
           [(ngModel)]="form.telefone"
           required
-          minlength="6"
+          minlength="9"
+          maxlength="10"
           #telefone="ngModel"
-          ui-mask="(99)9?9999-9999"
+          mask="(99)9?9999-9999"
         />
         <div class="alert-danger" *ngIf="telefone.errors && f.submitted">
           <div *ngIf="telefone.errors.required">Telefone é obrigatório</div>
